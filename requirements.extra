@@ -1,0 +1,1 @@
+-e git+https://github.com/xacce/django-simple-yandex-map.git#egg=django_ymap

@@ -1,0 +1,13 @@
+venv/
+media/
+*/__pycache__/
+db.sqlite3
+*.pyc
+*.o
+.idea/
+landing_designer/configuration/debug.py
+landing_designer/configuration/local.py
+/assets/media/*
+/logs/*
+/media/
+*.sql
