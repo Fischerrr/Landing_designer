@@ -38,6 +38,7 @@ THIRD_PARTY_APPS = [
     'scss',
 ]
 CORE_APPS = [
+    'django.forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,7 +60,7 @@ VERSATILEIMAGEFIELD_SETTINGS = {
 }
 
 MIDDLEWARE = [
-    'landing_designer.middleware.SubdomainsMiddleware',
+    # 'landing_designer.middleware.SubdomainsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -180,6 +181,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -188,16 +190,16 @@ TEMPLATES = [
         },
     }
 ]
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient"
-        },
-        "KEY_PREFIX": "landing_designer"
-    }
-}
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "redis://127.0.0.1:6379/1",
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient"
+#         },
+#         "KEY_PREFIX": "landing_designer"
+#     }
+# }
 
 DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
 ANYMAIL = {
