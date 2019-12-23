@@ -58,7 +58,7 @@ class FormEmailFeedback2LandingAdmin(admin.ModelAdmin):
 class ManagerEmailInline(admin.TabularInline):
     form = forms.ManagerEmailForm
     model = models.ManagerEmailFeedback
-    autocomplete_fields = ['landing',]
+    autocomplete_fields = ['landing', ]
     extra = 1
 
 
