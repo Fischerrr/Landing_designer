@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+{% block extrahead %}
+    {{ block.super }}
+    <script>
+        function resize_for_popup() {
+            if (/[?&]_popup=1(&|$)/.test(location.href)) {
+                let width = screen.width * 2 / 3;
+                let height = screen.height * 2 / 3;
+                window.resizeTo(width, height);
+            }
+        }
+
+        resize_for_popup();
+    </script>
+{% endblock %}

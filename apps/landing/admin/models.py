@@ -147,7 +147,7 @@ class CatalogAdmin(admin.ModelAdmin):
     def save_related(self, request, form, formsets, change):
         cd = super().save_related(request, form, formsets, change)
         for product in form.instance.product.all():
-            utils.save_param_column_catalog(product=product)
+            utils.save_param_column_catalog(catalog=form.instance, product=product)
 
         return cd
 
@@ -173,7 +173,7 @@ class ProductsCatalogAdmin(admin.ModelAdmin):
 
     def save_related(self, request, form, formsets, change):
         cd = super().save_related(request, form, formsets, change)
-        utils.save_param_column_catalog(product=form.instance)
+        utils.save_param_column_catalog(catalog=form.instance, product=form.instance)
 
         return cd
 

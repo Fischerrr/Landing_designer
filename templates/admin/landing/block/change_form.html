@@ -1,0 +1,49 @@
+{% extends 'admin/change_form.html' %}
+{% block admin_change_form_document_ready %}
+    {{ block.super }}
+    <script>
+        (function($) {
+            'use strict';
+            $(document).ready(function() {
+                let fileds_data = JSON.parse('{{ fields_dict|safe }}');
+                let id_template = $('#id_template');
+                let main_filds = $('.field-template').nextAll();
+                let inline_formset = $('.field-template').parent().nextAll('.js-inline-admin-formset');
+
+                {#Показываем поля указанные fileds_data, остальные будут скрыты#}
+                function showFields(param) {
+                    main_filds.hide();
+                    inline_formset.hide();
+                    fileds_data[param].forEach(function (field) {
+                        if (typeof(field) === 'object') {
+                            $('#id_' + field).parents('.js-inline-admin-formset').show();
+                            $('#id_' + field).parents('.js-inline-admin-formset').find('.form-row').hide();
+                            $('#id_' + field).parents('.js-inline-admin-formset').find('.field-image_preview').show();
+                            field.forEach(function (fd) {
+                                if (typeof(fd) === 'object') {
+                                    $('#' + fd[0]).val(fd[1]);
+                                } else {
+                                    $('#id_' + fd).parents('.js-inline-admin-formset').find('.field-' + fd.split('_set-0-')[1]).show();
+                                }
+                            });
+                        } else if (field.indexOf('_set-group') !== -1) {
+                            $('#' + field).show();
+                        } else {
+                            $('.field-' + field).show();
+                        }
+                    });
+                }
+                if (id_template.val()) {
+                    showFields(id_template.val());
+                } else {
+                    main_filds.hide();
+                    inline_formset.hide();
+                }
+
+                id_template.on('change', function() {
+                    showFields($(this).val());
+                });
+            });
+        })(django.jQuery);
+    </script>
+{% endblock %}

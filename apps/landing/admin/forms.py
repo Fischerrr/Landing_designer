@@ -7,6 +7,11 @@ from apps.landing import models
 from django import forms
 
 
+def label_from_instance(obj):
+    url = reverse(f'admin:{obj._meta.app_label}_{obj._meta.model_name}_change', args=[obj.id])
+    return f'{obj} <a class="related-widget-wrapper-link" href="{url}?_to_field=id&_popup=1" target="_blank"><img src="/static/admin/img/icon-changelink.svg" alt="Изменить"></a>'
+
+
 # добавляем возможность редактирования М2М экземпляров
 # важно, что бы у поля М2М был виджет с параметром ModelSelect2Multiple(attrs={'data-html': True})
 class DalLinkM2MFieldMixin(object):
@@ -16,11 +21,6 @@ class DalLinkM2MFieldMixin(object):
         super().__init__(*args, **kwargs)
         if self.dal_m2m_field:
             self.fields[self.dal_m2m_field].label_from_instance = label_from_instance
-
-
-def label_from_instance(obj):
-    url = reverse(f'admin:{obj._meta.app_label}_{obj._meta.model_name}_change', args=[obj.id])
-    return f'{obj} <a class="related-widget-wrapper-link" href="{url}?_to_field=id&_popup=1" target="_blank"><img src="/static/admin/img/icon-changelink.svg" alt="Изменить"></a>'
 
 
 class LandingForm(forms.ModelForm):

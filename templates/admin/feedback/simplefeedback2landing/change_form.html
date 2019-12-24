@@ -1,0 +1,38 @@
+{% extends 'admin/change_form.html' %}
+{% block admin_change_form_document_ready %}
+    {{ block.super }}
+    <script>
+        (function($) {
+            'use strict';
+            $(document).ready(function() {
+                let type_form = $('.field-type_form').find('.readonly').text();
+                let type_form_add_form = '{{ type_form_add_form }}';
+                let type_form_part = '{{ type_form_part }}';
+                let type_form_product = '{{ type_form_product }}';
+                let type_form_catalog = '{{ type_form_catalog }}';
+                let catalog_model = $('.field-catalog_model');
+                let characteristic = $('.field-characteristic');
+                let checkbox_text = $('.field-checkbox_text');
+                let name_fio = $('.field-name');
+                let name_product = $('.field-name_product');
+
+                catalog_model.hide();
+                characteristic.hide();
+                checkbox_text.hide();
+
+                if (type_form === type_form_part) {
+                    catalog_model.show();
+                    characteristic.show();
+                } else if (type_form === type_form_product) {
+                    catalog_model.show();
+                } else if (type_form === type_form_add_form || type_form === type_form_catalog)  {
+                    if (type_form === type_form_catalog) {
+                        name_fio.hide();
+                        name_product.hide()
+                    }
+                    checkbox_text.show();
+                }
+            });
+        })(django.jQuery);
+    </script>
+{% endblock %}

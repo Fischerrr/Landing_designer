@@ -43,6 +43,12 @@ CATALOG_PRODUCT_TEMPLATE = (
     (CATALOG_GALLERY, 'Шаблон с галереей'),
 )
 
+# Данный словарь необходим для отображения необходимых полей в админке у Блока
+# значение данного словаря является список в котором перечисленны поля Блока, которые будут отображены пример:
+# ['subtitle', 'text_button'] -- поля Блока
+# ['title', ['gallery2block_set-0-image']], --- поле Блока и поле с изображением связанной модели Gallery2Block
+# ['title', ['gallery2block_set-0-image', ['id_gallery2block_set-MAX_NUM_FORMS', 4]]] --- тоже самое, но теперь
+# с указанием максимального количества допустимых экземпляров связанной модели.
 BLOCK_FIELDS_DICT = {
     GREETING: ['title', 'subtitle', 'text_button', 'catalog_file',
                ['text2block_set-0-description', 'text2block_set-0-priority', ['id_text2block_set-MAX_NUM_FORMS', 4]]],

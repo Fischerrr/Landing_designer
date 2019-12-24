@@ -43,7 +43,7 @@ class FormSimpleFeedback2LandingAdmin(admin.ModelAdmin):
         extra_context = extra_context or {}
         extra_context['type_form_catalog'] = models.TYPE_SIMPLE_FORM[1][1]
         extra_context['type_form_add_form'] = models.TYPE_SIMPLE_FORM[2][1]
-        extra_context['type_form_model'] = models.TYPE_SIMPLE_FORM[4][1]
+        extra_context['type_form_product'] = models.TYPE_SIMPLE_FORM[4][1]
         extra_context['type_form_part'] = models.TYPE_SIMPLE_FORM[5][1]
         return super()._changeform_view(request, object_id, form_url, extra_context)
 

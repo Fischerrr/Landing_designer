@@ -1,0 +1,13 @@
+{% extends 'admin/change_form.html' %}
+{% block after_field_sets %}
+    {% if disabled_block %}
+        <div class="form-row">
+            <h3>Возможность редактирования блоков будет доступна после сохранения лендинга</h3>
+        </div>
+        <div class="form-row"></div>
+    {% endif %}
+{% endblock %}
+{% block object-tools-items %}
+    <li ><a href="http://{{ original.slug }}.{{ request.META.SERVER_NAME }}" class="viewsitelink">Показать на сайте</a></li>
+    {{ block.super }}
+{% endblock %}
