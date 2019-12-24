@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+      <meta charset="utf-8">
+      {% block title_seo %}<title>Лендинг</title>{% endblock %}
+      {% block description_seo %}{% endblock %}
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="format-detection" content="telephone=no">
+      <link rel="stylesheet" href="{{ static('frontend/css/app.css') }}">
+      <meta name="msapplication-TileColor" content="#a4262a">
+      <meta name="theme-color" content="#ffffff">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;subset=cyrillic" rel="stylesheet">
+
+
+     {% block style_color %}
+     {% endblock %}
+
+</head>
+
+<body class="home">
+{% block landing %}
+{% endblock %}
+<!-- BEGIN scripts -->
+{% block scripts %}
+{% endblock %}
+<script src="{{ static('frontend/js/app.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key="></script>
+<!-- END scripts -->
+
+{% block yandex_metrik %}
+{% endblock %}
+
+</body>
+</html>
