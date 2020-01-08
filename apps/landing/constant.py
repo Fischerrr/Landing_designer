@@ -89,6 +89,7 @@ BLOCK_FIELDS_DICT = {
     OTHER_OFF: ['title'],
 }
 
+# словарь значение которого путь до шаблонов jinja
 BLOCK_TEMPLATE = {
     GREETING: '',
     ABOUT_PRODUCT: '',

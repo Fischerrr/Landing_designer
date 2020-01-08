@@ -173,7 +173,12 @@ class ProductsCatalogAdmin(admin.ModelAdmin):
 
     def save_related(self, request, form, formsets, change):
         cd = super().save_related(request, form, formsets, change)
-        utils.save_param_column_catalog(catalog=form.instance, product=form.instance)
+        try:
+            catalog = models.Catalog.objects.get(product=form.instance)
+        except models.Catalog.DoesNotExist:
+            pass
+        else:
+            utils.save_param_column_catalog(catalog=catalog, product=form.instance)
 
         return cd
 

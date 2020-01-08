@@ -129,7 +129,6 @@ CKEDITOR_CONFIGS = {
     },
 }
 
-# CELERY_BROKER_URL = 'redis://localhost:6379/1'
 
 TEMPLATES = [
     {
@@ -190,6 +189,9 @@ TEMPLATES = [
         },
     }
 ]
+
+# CELERY_BROKER_URL = 'redis://localhost:6379/1'
+
 # CACHES = {
 #     "default": {
 #         "BACKEND": "django_redis.cache.RedisCache",

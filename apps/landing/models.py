@@ -171,8 +171,7 @@ class Landing(Enabled):
     def __str__(self):
         return self.name
 
-    # получение url лендинга, если используется поддомен
-    def get_landing_url(self, request):
+    def get_landing_subdomain_url(self, request):
         return f"{self.slug}.{request.META.get('SERVER_NAME')}"
 
     class Meta:
