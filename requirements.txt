@@ -10,7 +10,7 @@ argon2-cffi==18.3.0
 django-autocomplete-light==3.3.2
 django-ckeditor==5.6.1
 django-constance==2.3.1
-django-debug-toolbar==2.1
+django-debug-toolbar==2.2.1
 django-jinja==2.4.1
 django-versatileimagefield==1.10
 django-silk==3.0.4
